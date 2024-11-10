@@ -205,7 +205,6 @@ button:hover,
     min-height: 100px;
     min-width: 400px;
     height: 100%;
-    width: 100%;
     display: flex;
     justify-self: center;
     display: flex;
@@ -239,7 +238,6 @@ button:hover,
     justify-content: center;
     border-radius: 8px;
     padding: 15px 10px 15px;
-    /* margin: 0 10px 0 10px; */
 }
 
 .result-table {
