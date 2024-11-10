@@ -304,7 +304,7 @@ li {
     font-size: 13px;
     text-align: left;
     color: rgb(49, 49, 54);
-    list-style: none
+    list-style-type: none;
 }
 
 @media only screen and (min-width:100px) and (max-width: 649px) {
