@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' http://127.0.0.1:3000/index.html;">
+
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">
+    <link href="./styles.css" rel="stylesheet">
+    <title>Match&Compare</title>
+</head>
+
+<body>
+    <div id="tapani">
+        <img class="tapani-logo" src="images\tapani-logo.png">
+        <h1>Tapani Inc</h1>
+    </div>
+    <div class="divider"></div>
+    <h1>Match and Compare</h1>
+    <div class="container">
+        <!-- <div class='bulk-filters'>
+
+        <iframe src="\Filter Numbers\bulk-filters.txt" frameborder="0"></iframe></div> -->
+        <div class="list-container">
+            <h2>BULK LIST</h2>
+            <textarea id="pasteList1" placeholder="Paste your bulk list here in this format: (1R-1808 ENGINE OIL FILTER) "></textarea>
+            <!-- <button class="pasteBtn" id="pasteList1Btn">Paste</button> -->
+            <div class="divider-list"></div>
+            <div class="container-overflow">
+
+                <table id="list1" class="spreadsheet">
+
+                    <thead>
+                        <tr>
+                            <th>Item Number</th>
+                            <th>Item Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data rows will be inserted dynamically here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- <button id="refreshBtn">Clear</button> -->
+
+        <div class="list-container">
+            <h2>ORDER LIST</h2>
+            <textarea id="pasteList2" placeholder="Paste your list here in this format (1 1R-1808 ENGINE OIL FILTER)"></textarea>
+            <!-- <button class="pasteBtn" id="pasteList2Btn">Paste</button> -->
+            <div class="divider-list"></div>
+            <div class="container-overflow">
+                <table id="list2" class="spreadsheet">
+                    <thead>
+                        <tr>
+                            <th>Quantity</th>
+                            <th>Item Number</th>
+                            <th>Item Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data rows will be inserted dynamically here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- <button id="compareBtn">Compare</button> -->
+    <h6 class="reminder ">Results are copied automatically</h6>
+    <button id="refreshBtn">Clear</button>
+
+    <div class="divider"></div>
+
+    <div class="resultcontainer">
+
+        <div id="result">
+
+        </div>
+
+    </div>
+    <div class="divider"></div>
+    <div class="container1">
+        <div class="help-info">
+            <p><strong><strong><span style="color: #3a3939">"Bulk List"</span></strong> format has to be <strong><span style="color: #3a3939">(Item Number, Item Name)</span></strong> no item quantities before or after.
+            </p>
+            <p><strong><span style="color: #3a3939">"Order List"</span></strong> format has to be <strong><span style="color: #3a3939">(Item Quantity, Item Number, Item Name)</span></strong>.</p>
+            <div class="divider-info"></div>
+
+
+            <ul>
+                <li><strong><strong><span style="color: #494949">Text Formatting:</span></strong></li>
+                <ul>
+                    <li> Ensures there is only one space between a string of text - will remove extra spaces.</li>
+                    <li> Removes <strong><span style="color: #888383">"</span></strong> / <strong><span style="color: #888383">-</span></strong> / <strong><span style="color: #888383">,</span></strong> from text.</li>
+                </ul>
+                <div class="divider-info"></div>
+                <P>To reset list click <strong><span style="color: #3a3939">"Clear"</span></strong> button or use <strong><span style="color: #3a3939">"CTRL + R"</span></strong></P>
+            </ul>
+        </div>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+
+</html>
