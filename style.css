@@ -1,13 +1,7 @@
-/* styles.css */
-
-
-/* Add styles here to customize the appearance of your app */
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* background: #13131b; */
 }
 
 *::-webkit-scrollbar {
@@ -96,14 +90,6 @@ h1 {
     /* flex-wrap: wrap; */
 }
 
-
-/* .bulk-filters iframe {
-    min-width: 100px;
-    padding: 5px;
-    margin-right: 10px;
-    overflow: hidden;
-} */
-
 textarea {
     color: #ccc4c4;
 }
@@ -113,15 +99,6 @@ textarea {
     max-height: 50vh;
     overflow-y: auto;
 }
-
-
-/* @media (max-width:1061px) {
-    .list-container {
-        min-width: 200px;
-        max-width: 1000px;
-        margin: 0 30px 0 30px;
-    }
-} */
 
 .list-container {
     background: rgb(28, 26, 32);
@@ -275,7 +252,6 @@ button:hover,
 
 .result-table th,
 .result-table td {
-    /* border: 1px solid #2d2e3a; */
     padding: 8px;
     text-align: center;
     background: rgb(24, 23, 32);
