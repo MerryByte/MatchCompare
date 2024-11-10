@@ -4,9 +4,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">
-    <link href="MatchCompare\style.css" rel="stylesheet" type=“text/css”>
+    <link rel="stylesheet" href="style.css">
     <title>Match&Compare</title>
 </head>
 
@@ -19,7 +17,6 @@
     <h1>Match and Compare</h1>
     <div class="container">
         <!-- <div class='bulk-filters'>
-
         <iframe src="\Filter Numbers\bulk-filters.txt" frameborder="0"></iframe></div> -->
         <div class="list-container">
             <h2>BULK LIST</h2>
@@ -27,9 +24,7 @@
             <!-- <button class="pasteBtn" id="pasteList1Btn">Paste</button> -->
             <div class="divider-list"></div>
             <div class="container-overflow">
-
                 <table id="list1" class="spreadsheet">
-
                     <thead>
                         <tr>
                             <th>Item Number</th>
@@ -43,7 +38,6 @@
             </div>
         </div>
         <!-- <button id="refreshBtn">Clear</button> -->
-
         <div class="list-container">
             <h2>ORDER LIST</h2>
             <textarea id="pasteList2" placeholder="Paste your list here in this format (1 1R-1808 ENGINE OIL FILTER)"></textarea>
@@ -65,29 +59,22 @@
             </div>
         </div>
     </div>
-
     <!-- <button id="compareBtn">Compare</button> -->
     <h6 class="reminder ">Results are copied automatically</h6>
     <button id="refreshBtn">Clear</button>
-
     <div class="divider"></div>
-
     <div class="resultcontainer">
-
         <div id="result">
-
         </div>
-
     </div>
     <div class="divider"></div>
     <div class="container1">
         <div class="help-info">
             <p><strong><strong>"Bulk List"</strong> format has to be <strong>(Item Number, Item Name)</strong> no item quantities before or after.
             </p>
-            <p><strong>"Order List"</strong> format has to be <strong>(Item Quantity, Item Number, Item Name)</strong>.</p>
+            <p><strong>"Order List"</strong> format has to be <strong>(Item Quantity, Item Number, Item Name)</strong>.
+            </p>
             <div class="divider-info"></div>
-
-
             <ul>
                 <li><strong><strong>Text Formatting:</strong></li>
                 <ul>
@@ -99,7 +86,6 @@
             </ul>
         </div>
     </div>
-
     <script src="javascript.js"></script>
 </body>
 
