@@ -6,7 +6,7 @@ window.addEventListener('keydown', (event) => {
     }
 });
 
-const { clipboard } = require('electron');
+// const { clipboard } = require('electron');
 
 document.getElementById('pasteList1').addEventListener('input', function() {
     pasteData('list1');
