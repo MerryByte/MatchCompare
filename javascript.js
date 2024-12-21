@@ -1,3 +1,24 @@
+let button = document.querySelector(".menu");
+let menu = document.querySelector(".menu-open");
+console.log(button)
+let click =  0;
+button.addEventListener("click", function() {
+    
+    // menu.style.visibility = 'visible'
+    if (menu.style.visibility == 'hidden'){
+        // click = 1;
+        console.log('visible')
+        menu.style.visibility = 'visible'
+    } else {
+        // click = 0;
+        console.log('hidden')
+        menu.style.visibility = 'hidden'
+    } 
+})
+
+
+
+
 window.addEventListener('keydown', (event) => {
     if ((event.ctrlKey || event.metaKey) && event.key === 'r') {
         event.preventDefault();
