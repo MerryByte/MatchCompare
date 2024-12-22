@@ -14,13 +14,13 @@
         <h1>Tapani Inc</h1>
     </div>
     
-    <div class="menu">
+    <!-- <div class="menu">
         
         <div class="menu-open">
             <ul>
                 <a href="index--test.html">Test</a>
             </ul>
-        </div>
+        </div> -->
     </div>
     <div class="divider">
     </div>
@@ -30,13 +30,14 @@
         <iframe src="\Filter Numbers\bulk-filters.txt" frameborder="0"></iframe></div> -->
         <div class="list-container">
             <h2>BULK LIST</h2>
-            <textarea id="pasteList1" placeholder="Paste your bulk list here in this format: (1R-1808 ENGINE OIL FILTER) "></textarea>
+            <textarea id="pasteList1" placeholder="Paste your list here in this format (1 1R-1808 ENGINE)"></textarea>
             <!-- <button class="pasteBtn" id="pasteList1Btn">Paste</button> -->
             <div class="divider-list"></div>
             <div class="container-overflow">
                 <table id="list1" class="spreadsheet">
                     <thead>
                         <tr>
+                            <th>Quantity</th>
                             <th>Item Number</th>
                             <th>Item Name</th>
                         </tr>
@@ -50,7 +51,7 @@
         <!-- <button id="refreshBtn">Clear</button> -->
         <div class="list-container">
             <h2>ORDER LIST</h2>
-            <textarea id="pasteList2" placeholder="Paste your list here in this format (1 1R-1808 ENGINE OIL FILTER)"></textarea>
+            <textarea id="pasteList2" placeholder="Paste your list here in this format (1 1R-1808 ENGINE )"></textarea>
             <!-- <button class="pasteBtn" id="pasteList2Btn">Paste</button> -->
             <div class="divider-list"></div>
             <div class="container-overflow">
@@ -70,21 +71,21 @@
         </div>
     </div>
     <!-- <button id="compareBtn">Compare</button> -->
-    <h6 class="reminder ">Results are copied automatically</h6>
+    <!-- <h6 class="reminder ">Results are copied automatically</h6> -->
     <button id="refreshBtn">Clear</button>
     <div class="divider clear"></div>
     <div class="resultcontainer">
         <div id="result">
         </div>
     </div>
-    <div class="divider"></div>
+    <!-- <div class="divider"></div> -->
     <div class="container1">
         <div class="help-info">
-            <p><strong><strong>"Bulk List"</strong> format has to be <strong>(Item Number, Item Name)</strong> no item quantities before or after.
+            <!-- <p><strong><strong>"Bulk List"</strong> format has to be <strong>(Item Number, Item Name)</strong> no item quantities before or after.
             </p>
             <p><strong>"Order List"</strong> format has to be <strong>(Item Quantity, Item Number, Item Name)</strong>.
-            </p>
-            <div class="divider-info"></div>
+            </p> -->
+            <div class="divider-info info1"></div>
             <ul>
                 <li><strong><strong>Text Formatting:</strong></li>
                 <ul>
@@ -92,7 +93,7 @@
                     <li> Removes <strong>"</strong> / <strong>-</strong> / <strong>,</strong> from text.</li>
                 </ul>
                 <div class="divider-info"></div>
-                <P>To reset list click <strong>"Clear"></strong> button or use <strong>"CTRL + R"</strong></P>
+                <P>To reset list click <strong>"Clear"</strong> button or use <strong>"CTRL + R"</strong></P>
             </ul>
         </div>
     </div>
