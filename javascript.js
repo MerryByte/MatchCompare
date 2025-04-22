@@ -151,6 +151,10 @@ function displayResult(duplicates) {
     }
 }
 
+document.getElementById('refreshBtn').addEventListener('click', function() {
+    location.reload()
+})
+
 function copyToClipboard(duplicates) {
     const textToCopy = duplicates
         .map(dup => `${dup.quantity}\t${dup.itemNumber}\t${dup.itemName}`)
