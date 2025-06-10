@@ -1,19 +1,9 @@
-window.addEventListener('keydown', (event) => {
-    if ((event.ctrlKey || event.metaKey) && event.key === 'r') {
-        event.preventDefault();
-        console.log('Ctrl + R or Cmd + R pressed, reloading...');
-        window.location.reload();
-    }
-});
-
-// const { clipboard } = require('electron');
-
-document.getElementById('pasteList1').addEventListener('input', function() {
+document.getElementById('pasteList1').addEventListener('input', function () {
     pasteData('list1');
     compareLists(); // Automatically compare lists after pasting data into list1
 });
 
-document.getElementById('pasteList2').addEventListener('input', function() {
+document.getElementById('pasteList2').addEventListener('input', function () {
     pasteData('list2');
     compareLists(); // Automatically compare lists after pasting data into list2
 });
@@ -21,11 +11,6 @@ document.getElementById('pasteList2').addEventListener('input', function() {
 function capitalizeFirstLetter(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
-
-document.getElementById('refreshBtn').addEventListener('click', function() {
-    window.scrollTo(0, 0);
-    location.reload();
-});
 
 function pasteData(listId) {
     const pasteArea = document.getElementById(`paste${capitalizeFirstLetter(listId)}`);
@@ -44,17 +29,21 @@ function pasteData(listId) {
         const parts = sanitizedRow.split(' ').map(cell => cell.trim()).filter(cell => cell.length > 0);
 
         const newRow = document.createElement('tr');
+
         if (listId === 'list1') {
-            const itemNumber = parts[0];
-            const itemName = parts.slice(1).join(' ');
+            // If there's no item name, set it to empty
+            const quantity = parts[0] || 1;
+            const itemNumber = parts[1];
+            const itemName = parts.slice(2).join(' ') || ''; // If no name, make it empty
             newRow.innerHTML = `
+                <td><input type="number" value="${quantity}" placeholder="Quantity" /></td>
                 <td><input type="text" value="${itemNumber}" placeholder="Item Number" /></td>
                 <td><input type="text" value="${itemName}" placeholder="Item Name" /></td>
             `;
         } else if (listId === 'list2') {
-            const quantity = parts[0];
+            const quantity = parts[0] || 1; // Default quantity if missing
             const itemNumber = parts[1];
-            const itemName = parts.slice(2).join(' ');
+            const itemName = parts.slice(2).join(' ') || ''; // If no name, make it empty
             newRow.innerHTML = `
                 <td><input type="number" value="${quantity}" placeholder="Quantity" /></td>
                 <td><input type="text" value="${itemNumber}" placeholder="Item Number" /></td>
@@ -76,13 +65,14 @@ function getTableData(tableId) {
 
     rows.forEach(row => {
         if (tableId === 'list1') {
-            const itemNumber = row.cells[0].querySelector('input').value.trim();
-            const itemName = row.cells[1].querySelector('input').value.trim();
-            data.push({ itemNumber, itemName });
-        } else if (tableId === 'list2') {
-            const quantity = parseInt(row.cells[0].querySelector('input').value.trim(), 10) || 0;
+            const quantity = parseInt(row.cells[0].querySelector('input').value.trim(), 10) || 1;
             const itemNumber = row.cells[1].querySelector('input').value.trim();
-            const itemName = row.cells[2].querySelector('input').value.trim();
+            const itemName = row.cells[2].querySelector('input').value.trim() || ''; // Set empty if no name
+            data.push({ quantity, itemNumber, itemName });
+        } else if (tableId === 'list2') {
+            const quantity = parseInt(row.cells[0].querySelector('input').value.trim(), 10) || 1;
+            const itemNumber = row.cells[1].querySelector('input').value.trim();
+            const itemName = row.cells[2].querySelector('input').value.trim() || ''; // Set empty if no name
             data.push({ quantity, itemNumber, itemName });
         }
     });
@@ -97,15 +87,17 @@ function compareLists() {
     const duplicates = [];
     const list2Map = {};
 
+    // Aggregate quantities by item number for list2
     list2Data.forEach(item => {
         const itemNumber = item.itemNumber;
         if (list2Map[itemNumber]) {
             list2Map[itemNumber].quantity += item.quantity;
         } else {
-            list2Map[itemNumber] = {...item };
+            list2Map[itemNumber] = { ...item };
         }
     });
 
+    // Compare by itemNumber and add to duplicates if found
     list1Data.forEach(item1 => {
         if (list2Map[item1.itemNumber]) {
             duplicates.push({
@@ -159,11 +151,18 @@ function displayResult(duplicates) {
     }
 }
 
+document.getElementById('refreshBtn').addEventListener('click', function() {
+    location.reload()
+})
+
 function copyToClipboard(duplicates) {
     const textToCopy = duplicates
         .map(dup => `${dup.quantity}\t${dup.itemNumber}\t${dup.itemName}`)
         .join('\n');
 
-    clipboard.writeText(textToCopy);
-    console.log("Results copied to clipboard!");
+    navigator.clipboard.writeText(textToCopy).then(() => {
+        console.log("Results copied to clipboard!");
+    }).catch((err) => {
+        console.error("Failed to copy to clipboard", err);
+    });
 }
